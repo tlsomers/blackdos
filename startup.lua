@@ -15,7 +15,7 @@ end
 
 -- Set alias
 shell.setAlias( "test", "dragonos/programs/test.lua" )
-shell.setAlias( "format", "dragonos/programs/format.lua" )
+shell.setAlias( "uninstall", "dragonos/programs/uninstall.lua" )
 
 term.setTextColor(colors.yellow)
 term.setCursorPos(1,1)
