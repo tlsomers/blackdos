@@ -1,12 +1,12 @@
 local distro = ("DragonOS")
-local ver = ("1.8")
+local ver = ("DragonOS 1.8")
 
 function os.version()
     return ver
 end
 
 function os.about()
-	return distro.." "..ver.." is made by BlackDragon_B"
+	return ver.." is made by BlackDragon_B"
 end
 
 function os.distro()
@@ -20,4 +20,4 @@ shell.setAlias( "format", "dragonos/programs/format.lua" )
 term.setTextColor(colors.yellow)
 term.setCursorPos(1,1)
 term.clear()
-print(distro.." "..ver)
+print(ver)
