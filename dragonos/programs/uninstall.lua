@@ -1,12 +1,18 @@
 -- Uninstall by BlackDragon#8528
 -- Less destructive way of removing the OS
 
-write("Are you sure u want to uninstall DragonOS? Y/N ")
-local choice = read()
-if choice == Y or choice == y then
-  fs.delete("/startup.lua")
-  fs.delete("/dragonos")
-  os.reboot()
+write("Uninstall DragonOS? Enter to continue or any other key to cancel")
+
+local event, key = os.pullEvent( "key" )
+
+if key == keys.enter then
+    print("Uninstall")
+    fs.delete("/startup.lua")
+    fs.delete("/dragonos")
+    fs.delete("LICENSE")
+    os.reboot()
 else
-  error()
+    term.clear()
+    term.setCursorPos(1,1)
+    error()
 end
