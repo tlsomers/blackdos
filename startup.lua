@@ -13,9 +13,7 @@ function os.distro()
 	return distro
 end
 
--- Set alias
-shell.setAlias( "test", "dragonos/programs/test.lua" )
-shell.setAlias( "uninstall", "dragonos/programs/uninstall.lua" )
+shell.setPath(shell.path()..":/dragonos/programs")
 
 term.setTextColor(colors.yellow)
 term.setCursorPos(1,1)
