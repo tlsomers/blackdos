@@ -1,4 +1,4 @@
 -- Simple Echo program by BlackDragon
-args = {...}
-arg = args[1]
-print(arg)
+args = {...} or {""}
+
+print(table.concat(args, " "))
