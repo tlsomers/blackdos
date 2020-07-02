@@ -17,10 +17,10 @@ end
 local function login()
 	local f = fs.open("/usr/users.txt", "r")
 	local logindetails = textutils.unserialize(f.readAll())
+	f.close()
 	write(os.getComputerLabel().." login: "); local name = read()
 	write("Password: "); local password = read("*")
 	if name ~= logindetails[1] or sha256.hash(password) ~= logindetails[2] then print(" ");print("Login incorrect"); login() end
-	f.close()
 end
 
 
@@ -38,6 +38,7 @@ term.clear()
 
 os.loadAPI("/blackdos/api/gui.lua")
 
+os.pullEvent = os.pullEventRaw
 if fs.exists("/usr/users.txt") == false then shell.run("/blackdos/sys/wizard.lua") end 
 login()
 print(ver)
