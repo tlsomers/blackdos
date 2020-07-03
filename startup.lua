@@ -1,6 +1,6 @@
 local distro = ("BlackDOS")
 local ver = ("BlackDOS 1.8")
-os.loadAPI("/blackdos/api/sha256.lua")
+local sha = require("/blackdos/api/sha")
 
 function os.version()
     return ver
@@ -20,7 +20,7 @@ local function login()
 	f.close()
 	write(os.getComputerLabel().." login: "); local name = read()
 	write("Password: "); local password = read("*")
-	if name ~= logindetails[1] or sha256.hash(password) ~= logindetails[2] then print(" ");print("Login incorrect"); login() end
+	if name ~= logindetails[1] or sha(password) ~= logindetails[2] then print(" ");print("Login incorrect"); login() end
 end
 
 
@@ -40,5 +40,5 @@ os.loadAPI("/blackdos/api/gui.lua")
 
 os.pullEvent = os.pullEventRaw
 if fs.exists("/usr/users.txt") == false then shell.run("/blackdos/sys/wizard.lua") end 
-login()
+if settings.get("blackdos.login") == true then login() end
 print(ver)
