@@ -1,23 +1,25 @@
 -- GUI API
 
-black = colors.black
-white = colors.white
-lightBlue = colors.lightBlue
-green = colors.green
-yellow = colors.yellow
-blue = colors.blue
-purple = colors.purple
-magenta = colors.magenta
-lime = colors.lime
-orange = colors.orange
-red = colors.red
-brown = colors.brown
-cyan = colors.cyan
-pink = colors.pink
-grey = colors.gray
-gray = colors.gray
-lightGray = colors.lightGray
-lightGrey = colors.lightGray
+local gui = {}
+
+gui.black = colors.black
+gui.white = colors.white
+gui.lightBlue = colors.lightBlue
+gui.green = colors.green
+gui.yellow = colors.yellow
+gui.blue = colors.blue
+gui.purple = colors.purple
+gui.magenta = colors.magenta
+gui.lime = colors.lime
+gui.orange = colors.orange
+gui.red = colors.red
+gui.brown = colors.brown
+gui.cyan = colors.cyan
+gui.pink = colors.pink
+gui.grey = colors.gray
+gui.gray = colors.gray
+gui.lightGray = colors.lightGray
+gui.lightGrey = colors.lightGray
 
 -- Buttons
 
@@ -32,6 +34,9 @@ function createButton( name, func )
 	button.action = func
 	return button
 end
+
+gui.createButton = createButton
+
 
 function Buttons:toggle( newColor,sec )
 
@@ -90,6 +95,8 @@ function detect( x,y,trigger )
 	end
 end
 
+gui.detect = detect
+
 -- Progress Bars
 
 barList = {}
@@ -102,6 +109,8 @@ function createBar( name )
 	bar.name = name
 	return bar
 end
+
+gui.createBar = createBar
 
 function Bars:setup( x,y,length,color,pcolor,disp,dispbcolor,tcolor )
 	self.x,self.y,self.length,self.color,self.pcolor,self.disp,self.dispbcolor,self.tcolor = x,y,length,color,pcolor,disp,dispbcolor,tcolor
@@ -202,6 +211,8 @@ function newTextBox(x,y,length,bcolor,tcolor)
 	end
 end
 
+gui.newTextBox = newTextBox
+
 -- Boxes
 
 Boxs = {}
@@ -215,6 +226,8 @@ function createDialogueBox( title,body,boxType )
 	boxes.boxType = boxType
 	return boxes
 end
+
+gui.createDialogueBox = createDialogueBox
 
 function Boxs:draw( x,y,width,color,bcolor,tcolor )
 	ret = nil
@@ -382,3 +395,5 @@ function Boxs:clear( color )
 		paintutils.drawLine(self.x, self.y + i, self.x + self.len + 1, self.y + i, color)
 	end
 end
+
+return gui
