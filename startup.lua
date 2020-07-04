@@ -15,6 +15,8 @@ function os.distro()
 end
 
 local function login()
+	local pclabel = os.getComputerLabel()
+	if os.getComputerLabel() == nil then pclabel = "BlackDOS"
 	local f = fs.open("/usr/users.txt", "r")
 	local logindetails = textutils.unserialize(f.readAll())
 	f.close()
