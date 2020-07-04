@@ -38,7 +38,7 @@ term.clear()
 
 os.loadAPI("/blackdos/api/gui.lua")
 
-os.pullEvent = os.pullEventRaw
-if fs.exists("/usr/users.txt") == false then shell.run("/blackdos/sys/wizard.lua") end 
+os.pullEvent = os.pullEventRaw 
 if settings.get("blackdos.login") == true then login() end
+if fs.exists("/usr/users.txt") == false and settings.get("blackdos.login") == nil then shell.run("/blackdos/sys/wizard.lua") end
 print(ver)
