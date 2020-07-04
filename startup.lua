@@ -40,5 +40,5 @@ os.loadAPI("/blackdos/api/gui.lua")
 
 os.pullEvent = os.pullEventRaw 
 if settings.get("blackdos.login") == true then login() end
-if fs.exists("/usr/users.txt") == false and settings.get("blackdos.login") == nil then shell.run("/blackdos/sys/wizard.lua") end
+if fs.exists(".NEWINSTALL") == true then shell.run("/blackdos/sys/wizard.lua"); fs.delete(".NEWINSTALL") end
 print(ver)
