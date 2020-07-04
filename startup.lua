@@ -36,7 +36,8 @@ term.setTextColor(colors.yellow)
 term.setCursorPos(1,1)
 term.clear()
 
-os.loadAPI("/blackdos/api/gui.lua")
+-- Temporary, it's better to use local gui = require(...) whenever needed
+_G.gui = require("/blackdos/api/gui")
 
 os.pullEvent = os.pullEventRaw 
 if settings.get("blackdos.login") == true then login() end
