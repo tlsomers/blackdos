@@ -21,6 +21,9 @@ local function login()
 	write(os.getComputerLabel().." login: "); local name = read()
 	write("Password: "); local password = read("*")
 	if name ~= logindetails[1] or sha(password) ~= logindetails[2] then print(" ");print("Login incorrect"); login() end
+	-- Login correct clear screen and reposition cursor to start BlackDos at top of screen.
+	term.clear()
+	term.setCursorPos(1,1)
 end
 
 
